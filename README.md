@@ -8,7 +8,7 @@
 <!-- ABOUT THE PROJECT -->
 ## ABOUT THE PROJECT
 
-A project to visualize World Covid data on this website: https://www.worldometers.info/coronavirus/  
+A project to visualize World Covid data - collected from this website: https://www.worldometers.info/coronavirus/  
 Including:
 * Web scraping 
 * Data preprocessing
