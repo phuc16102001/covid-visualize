@@ -6,7 +6,7 @@
 
 ## About the project
 
-A project to visualize World Covid data - collected from this website: ![Corona virus - WorldOMeter](https://www.worldometers.info/coronavirus)
+A project to visualize World Covid data - collected from this website: [Corona virus - WorldOMeter](https://www.worldometers.info/coronavirus)
 Including:
 * Web scraping 
 * Data preprocessing
@@ -24,7 +24,7 @@ Including:
 ## Usuage
 
 * To read the report project:  
-Go to [Report.pdf](docs/Report.pdf)  
+Go to [Report.pdf](docs/19127242_19127142_19127360.pdf)  
 
 * To see how we pull the raw data:   
 Go to [crawl.ipynb](src/crawl.ipynb)  
@@ -33,7 +33,7 @@ Go to [crawl.ipynb](src/crawl.ipynb)
 Go to [preprocess.ipynb](src/preprocess.ipynb)  
 
 * To see how we visualize data:  
-Go to [visualize.ipynb](src/visualize.ipynb)  
+Go to [visualize.ipynb](src/visualize1.ipynb)  
 
 * All the data that we collected:  
 Go to [data](data)  
