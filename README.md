@@ -1,23 +1,19 @@
-# VISUALIZE-COVID-DATA
+# Visualize COVID data
+
 <div id="top"></div>
-
 <h3 align="center">WORLD COVID DATA VISUALIZATION</h3>
-
 </div>
 
-<!-- ABOUT THE PROJECT -->
-## ABOUT THE PROJECT
+## About the project
 
-A project to visualize World Covid data - collected from this website: https://www.worldometers.info/coronavirus/  
+A project to visualize World Covid data - collected from this website: ![Corona virus - WorldOMeter](https://www.worldometers.info/coronavirus)
 Including:
 * Web scraping 
 * Data preprocessing
 * Data visualizing
 * Data analysing
 
-
-## BUILT WITH
-
+## Libraries
 * Jupyter Notebook
 * BeautifulSoup4
 * Matplotlib
@@ -25,33 +21,31 @@ Including:
 * Matplotlib
 * Pandas
 
-
-
-<!-- GETTING STARTED -->
-
-## USAGE
+## Usuage
 
 * To read the report project:  
-Go to [Report.pdf](https://github.com/duchieuvn/VISUALIZE-COVID-DATA/blob/main/Report.pdf)  
+Go to [Report.pdf](docs/Report.pdf)  
+
 * To see how we pull the raw data:   
-Go to [source/crawl.ipynb](https://github.com/duchieuvn/VISUALIZE-COVID-DATA/blob/main/source/crawl.ipynb)  
+Go to [crawl.ipynb](src/crawl.ipynb)  
+
 * To see how we preprocess the raw data:  
-Go to [source/preprocess.ipynb](https://github.com/duchieuvn/VISUALIZE-COVID-DATA/blob/main/source/preprocess.ipynb)  
+Go to [preprocess.ipynb](src/preprocess.ipynb)  
+
 * To see how we visualize data:  
-Go to [source/visualize.ipynb](https://github.com/duchieuvn/VISUALIZE-COVID-DATA/blob/main/source/visualize.ipynb)  
+Go to [visualize.ipynb](src/visualize.ipynb)  
 
-* All the data that we used:  
-Go to [data](https://github.com/duchieuvn/VISUALIZE-COVID-DATA/tree/main/data)  
+* All the data that we collected:  
+Go to [data](data)  
 
-<!-- CONTACT -->
-## CONTRIBUTORS
+## Contributors
+| Student name        | Student ID |
+|---------------------|------------|
+| Đỗ Vương Phúc       | 19127242   |
+| Trần Thái Đức Hiếu  | 19127142   |
+| Dương Thị Xuân Diệu | 19127360   |
 
-Đỗ Vương Phúc 
-
-Dương Thị Xuân Diệu
-
-Trần Thái Đức Hiếu 
-
+This project is owned by the team, **please do not copy**. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
