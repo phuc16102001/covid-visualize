@@ -22,7 +22,7 @@ Including:
 * Matplotlib
 * Pandas
 
-## Usuage
+## Usage
 
 * To read the report project:  
 Go to [Report.pdf](docs/19127242_19127142_19127360.pdf)  
