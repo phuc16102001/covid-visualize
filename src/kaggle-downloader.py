@@ -4,21 +4,18 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-
-username = "phuc16102001"
-password = "@Phuc16102001"
-email = f"{username}@gmail.com"
-driverPath = "P:\chrome-driver\chromedriver.exe"
+from argparse import ArgumentParser
 
 baseURL = "https://www.kaggle.com"
 loginPath = f"{baseURL}/account/login"
-homePath = f"{baseURL}"
-notebookPath = f"{baseURL}/code/{username}/data-crawl-covid-worldometer"
-codePath = f"{baseURL}/{username}/code"
+driver = None
 
-options = Options()
-options.add_argument("start-maximized")
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+def initDriver():
+    global driver 
+
+    options = Options()
+    options.add_argument("start-maximized")
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 def loadDriver(url, timeout = 3):
     global driver
@@ -27,7 +24,7 @@ def loadDriver(url, timeout = 3):
     driver.implicitly_wait(timeout)
     driver.fullscreen_window()
 
-def goToVersion():
+def goToVersion(notebookPath):
     loadDriver(notebookPath)
 
     btnDot = driver.find_element(by=By.XPATH, value = "/html/body/main/div[1]/div/div[5]/div[2]/div[3]/div/div[1]/div/div[2]/button")
@@ -54,7 +51,7 @@ def downloadForVersion(url):
     btnDownload.click()
     sleep(2)
 
-def login():
+def login(email, password):
     loadDriver(loginPath)
 
     btnLoginEmail = driver.find_element(by=By.XPATH,value="/html/body/main/div[1]/div/div[2]/form/div[2]/div/div[2]/a/li/div")
@@ -70,10 +67,14 @@ def login():
     btnLogin.click()
     sleep(2)
 
-def main():
-    login()
-    goToVersion()
-    
+def main(args):
+    notebookPath = f"{baseURL}/code/{args.username}/{args.notebook}"
+    initDriver()
+
+    login(args.email, args.password)
+    goToVersion(notebookPath)
+
+    # Get all the current versions    
     lsVersion = driver.find_elements(by=By.XPATH, value="/html/body/main/div[1]/div/div[1]/div/ul/a")
     lsVersionId = []
     for version in lsVersion:
@@ -86,15 +87,49 @@ def main():
             continue
         print(f"Hit...{versionId}")
         lsVersionId.append(versionId)
-
     print(f"Get in total {len(lsVersionId)} versions...")
 
-    fromVersion = int(input("From version number: "))
-    for idx in range(fromVersion, len(lsVersionId)):
+    # Crawl outputs
+    for idx in range(args.from_version, len(lsVersionId)):
         versionId = lsVersionId[idx]
         print(f"Crawl version {versionId}")
         downloadForVersion(f"{notebookPath}?scriptVersionId={versionId}")
     driver.quit()
 
 if __name__=="__main__":
-    main()
+    parser = ArgumentParser(
+        description="Kaggle output downloader"
+    )
+    parser.add_argument(
+        "-u",
+        "--username",
+        required=True,
+        help="Input Kaggle username",
+    )
+    parser.add_argument(
+        "-p",
+        "--password",
+        required=True,
+        help="Input Kaggle password",
+    )
+    parser.add_argument(
+        "-e",
+        "--email",
+        required=True,
+        help="Input Kaggle email",
+    )
+    parser.add_argument(
+        "-fv",
+        "--from_version",
+        required=False,
+        help="From version number",
+        default=0
+    )
+    parser.add_argument(
+        "-n",
+        "--notebook",
+        required=True,
+        help="Notebook title"
+    )
+    args = parser.parse_args()
+    main(args)

@@ -41,6 +41,19 @@ Including:
 - To download all output from kaggle kernels:
   
   Go to [kaggle-downloader.py](src/kaggle-downloader.py)
+  
+  Run the script as following:
+  ```bash
+  python kaggle-downloader.py -u <username> -e <email> -p <password> -n <notebook>
+  ```
+  For instance:
+  ```bash
+  python kaggle-downloader.py \
+    -u phuc16102001 \
+    -p 123456 \
+    -e phuc16102001@gmail.com \
+    -n data-crawl-covid-worldometer
+  ```
 
 - All the data that we collected:  
   Go to [data](data)
