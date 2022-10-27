@@ -36,6 +36,9 @@ Go to [preprocess.ipynb](src/preprocess.ipynb)
 * To see how we visualize data:  
 Go to [visualize.ipynb](src/visualize1.ipynb)  
 
+* To download all output from kaggle kernels:
+Go to [kaggle-downloader.py](src/kaggle-downloader.py)
+
 * All the data that we collected:  
 Go to [data](data)  
 
